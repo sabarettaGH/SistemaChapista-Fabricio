@@ -18,51 +18,80 @@ const generateChapistaPDF = (data: Chapista) => {
   const content: any[] = []; // --- Encabezado con información de la empresa y del presupuesto
 
   content.push({
-    ccolumns: [
+    columns: [
       {
+        // Columna izquierda: imagen + PRESUPUESTO debajo
         stack: [
-          { text: 'Fabricio Electrotomecanica', style: 'companyTitle' },
           {
-            text: 'MECANICA Y ELECTRONICA',
-            style: 'companySubtitle',
+            image: miImage,
+            width: 150,
+            height: 140,
+            alignment: 'left',
+            margin: [0, 10, 0, 10],
           },
           {
-            text: 'SERVICIOS ESPECIALES, TODAS LAS MARCAS Y MODELOS',
-            style: 'companySubtitle',
+            text: 'PRESUPUESTO',
+            style: 'budgetTitle',
+            margin: [0, 10, 0, 0],
           },
-          { text: 'de Fabricio Gonzales', style: 'companySubtitle' },
-          {
-            text: 'Roque Saenz peña 3619-3016 Santo Tomé',
-            style: 'contactInfo',
-          },
-          { text: 'Cel.: 342 (15) 4 307257', style: 'contactInfo' },
-          { text: 'email: Fabrigonzalez164@gmail.com', style: 'contactInfo' },
-        ],
-      },
-      {
-        stack: [
-          { image: miImage, width: 150, height: 140, alignment: 'center' },
-        ],
-      },
-      {
-        stack: [
-          { text: 'PRESUPUESTO', style: 'budgetTitle', alignment: 'right' },
           {
             text: `N° ${data.numeroPresupuesto}`,
             style: 'budgetNumber',
-            alignment: 'right',
+            margin: [0, 2, 0, 0],
           },
           {
             text: `FECHA: ${data.fecha}`,
             style: 'budgetDate',
+            margin: [0, 2, 0, 0],
+          },
+        ],
+        width: 'auto',
+        margin: [0, 0, 10, 0],
+      },
+      {
+        // Columna derecha: características del negocio
+        stack: [
+          {
+            text: 'Fabricio Electrotomecanica',
+            style: 'companyTitle',
+            alignment: 'right',
+          },
+          {
+            text: 'MECANICA Y ELECTRONICA',
+            style: 'companySubtitle',
+            alignment: 'right',
+          },
+          {
+            text: 'SERVICIOS ESPECIALES, TODAS LAS MARCAS Y MODELOS',
+            style: 'companySubtitle',
+            alignment: 'right',
+          },
+          {
+            text: 'de Fabricio Gonzales',
+            style: 'companySubtitle',
+            alignment: 'right',
+          },
+          {
+            text: 'Roque Saenz peña 3619-3016 Santo Tomé',
+            style: 'contactInfo',
+            alignment: 'right',
+          },
+          {
+            text: 'Cel.: 342 (15) 4 307257',
+            style: 'contactInfo',
+            alignment: 'right',
+          },
+          {
+            text: 'email: Fabrigonzalez164@gmail.com',
+            style: 'contactInfo',
             alignment: 'right',
           },
         ],
-        alignment: 'right',
+        width: '*', // ocupa todo lo que queda a la derecha
       },
     ],
     margin: [0, 0, 0, 20],
-  }); // --- Información del cliente y vehículo
+  });
 
   content.push({
     columns: [
