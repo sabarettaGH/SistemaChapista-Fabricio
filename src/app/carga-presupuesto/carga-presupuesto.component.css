@@ -1,0 +1,189 @@
+/* Estilos para el cuerpo de la página */
+.body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  row-gap: 1rem;
+  background-color: #f4f4f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Estilos para títulos y encabezados */
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: end;
+}
+
+/* Estilos para el formulario principal */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Estilos para los contenedores de label e input */
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+/* Estilos para inputs y textarea */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Agrega espacio vertical entre las filas */
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* El header de la tabla */
+th {
+  background-color: #f2f2f2;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Ajustes específicos de columnas */
+#th-detalle {
+  width: 80%; /* Ocupa la mayor parte del espacio */
+}
+
+#th-eliminar {
+  width: 20%; /* Espacio para el botón de eliminar */
+}
+
+.td-eliminar {
+  width: 20%;
+}
+
+/* Estilos para los botones */
+button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+
+.boton-agregar {
+  background-color: #3480d1;
+  width: 100%;
+}
+
+.boton-agregar:hover {
+  background-color: #0056b3;
+}
+
+.boton-generate {
+  background-color: #4caf50;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.boton-generate:hover {
+  background-color: #45a049;
+}
+
+.boton-eliminar {
+  background-color: #f44336;
+  width: 100%;
+}
+
+.boton-eliminar:hover {
+  background-color: #d32f2f;
+}
+
+/* Estilos para el total */
+.total {
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Media Queries para tablets y desktops */
+@media (min-width: 768px) {
+  .body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  form {
+    max-width: 700px;
+    margin: 40px auto;
+  }
+
+  form > div {
+    flex-direction: row;
+    align-items: center;
+    width: 48%; /* Para tener dos columnas de campos */
+  }
+
+  form > div > label {
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  form > div > input {
+    width: calc(100% - 160px);
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .boton-agregar {
+    width: 30%;
+  }
+
+  .boton-generate {
+    width: 30%;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,93 @@
+<div class="body">
+    <h1>Armado de presupuesto</h1>
+    <form>
+
+        <div>
+            <label for="numero_presupuesto">Numero de presupuesto</label>
+            <input id="numero_presupuesto" [(ngModel)]="datosPresupuesto.numeroPresupuesto" name="numero_presupuesto"
+                required>
+        </div>
+        <div>
+            <label for="numero_siniestro">Numero de siniestro</label>
+            <input id="numero_siniestro" [(ngModel)]="datosPresupuesto.numeroSiniestro" name="numero_siniestro"
+                required>
+        </div>
+        <div>
+            <label for="fecha">Fecha:</label>
+            <input id="fecha" [(ngModel)]="datosPresupuesto.fecha" name="fecha" required type="date">
+        </div>
+        <div>
+            <label for="senores">Señor/es:</label>
+            <input id="senores" [(ngModel)]="datosPresupuesto['señor/es']" name="senores" required>
+        </div>
+        <div>
+            <label for="telefono">Telefono:</label>
+            <input id="telefono" [(ngModel)]="datosPresupuesto.telefono" type="tel" name="telefono" required>
+        </div>
+        <div>
+            <label for="correoElectronico">Correo electronico:</label>
+            <input id="correoElectronico" type="email" [(ngModel)]="datosPresupuesto.correoElectronico"
+                name="correoElectronico" required>
+        </div>
+        <div>
+            <label for="domicilio">Domicilio:</label>
+            <input id="domicilio" [(ngModel)]="datosPresupuesto.domicilio" name="domicilio" required>
+        </div>
+        <div>
+            <label for="localidad">Localidad:</label>
+            <input id="localidad" [(ngModel)]="datosPresupuesto.localidad" name="localidad" required>
+        </div>
+        <div>
+            <label for="marcaVehiculo">Marca del vehículo:</label>
+            <input id="marcaVehiculo" [(ngModel)]="datosPresupuesto.marcaVehiculo" name="marcaVehiculo">
+        </div>
+        <div>
+            <label for="modelo">Modelo:</label>
+            <input id="modelo" [(ngModel)]="datosPresupuesto.modelo" name="modelo">
+        </div>
+        <div>
+            <label for="chapaPatente">Chapa Patente:</label>
+            <input id="chapaPatente" [(ngModel)]="datosPresupuesto.chapaPatente" name="chapaPatente">
+        </div>
+
+
+
+        <h2>Detalle del Trabajo</h2>
+        <table>
+
+            <tbody>
+                @for (item of datosPresupuesto.detalle; track item; let i = $index) {
+                <tr class="tr-detalle">
+                    <td>
+                        <input [(ngModel)]="item.detalle" name="detalle_{{ i }}" required>
+                    </td>
+                    <td class="td-eliminar">
+                        <button type="button" class="boton-eliminar" (click)="eliminarItem(i)" mat-raised-button
+                            color="warn">-</button>
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="2">No hay detalles agregados.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <button type="button" class="boton-agregar" (click)="agregarItem()" mat-raised-button color="accent">+</button>
+
+        <div class="total">
+            <label for="total">Total</label>
+            <input type="number" [(ngModel)]="datosPresupuesto.importeNeto" (ngModelChange)="calcularIva()" name="total"
+                placeholder="Total" required>
+        </div>
+        <h2>Observaciones</h2>
+        <div>
+            <textarea [(ngModel)]="datosPresupuesto.observaciones" name="observaciones"></textarea>
+        </div>
+        <h3>Total neto: $ {{ datosPresupuesto.importeNeto | number:'1.0-2' }}</h3>
+
+    </form>
+
+    <button (click)="onGeneratePDF()" class="boton-generate">Generar PDF</button>
+
+</div>
