@@ -67,7 +67,7 @@ const generateChapistaPDF = (data: Chapista) => {
             alignment: 'right',
           },
           {
-            text: 'de Fabricio Gonzales',
+            text: 'de Fabricio Gonzalez',
             style: 'companySubtitle',
             alignment: 'right',
           },
